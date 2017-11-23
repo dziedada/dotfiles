@@ -1,0 +1,24 @@
+Host caen
+Hostname login-course.engin.umich.edu
+User rpash
+Port 22
+
+Host win_homebox
+Hostname 192.168.0.3
+User rpash
+Port 22
+
+Host nuc1
+Hostname 192.168.1.61
+User maav
+Port 22
+
+Host nuc2
+Hostname 192.168.1.62
+User maav
+Port 22
+
+Host sph
+Hostname psoriasis.sph.umich.edu
+User rpash
+Port 22
