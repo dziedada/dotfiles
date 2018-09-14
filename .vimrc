@@ -64,6 +64,11 @@ set autoindent
 " Use intelligent indentation for C langs
 set smartindent
 
+" Use 4 spaces for tabs
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
 " Jump to last position when opening files
 if has('autocmd')
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
@@ -188,7 +193,8 @@ hi Normal guibg=NONE ctermbg=NONE
 let g:AutoPairsFlyMode = 0 " This is very annoying if enabled
 
 " Proper curly brace placement
-inoremap {<CR> {<CR><BS>}<ESC>O
+" No longer needed for spaces instead of tabs
+" inoremap {<CR> {<CR><BS>}<ESC>O
 
 "                                 NERDTree
 "------------------------------------------------------------------------------
