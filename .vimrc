@@ -284,7 +284,7 @@ let g:DoxygenToolkit_returnTag="@return "
 let g:DoxygenToolkit_startCommentTag = "/**"
 let g:DoxygenToolkit_startCommentBlock = "/*"
 let g:DoxygenToolkit_interCommentTag = "* "
-let g:DoxygenToolkit_authorName="Romario Pashollari (rpash@umich.edu)"
+let g:DoxygenToolkit_authorName="Adam Dziedzic (dziedada@umich.edu)"
 
 " Create Doxygen comment
 map <F6> :Dox<CR>
