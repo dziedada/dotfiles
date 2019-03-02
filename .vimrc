@@ -49,7 +49,12 @@ set textwidth=80
 autocmd BufNewFile,BufRead * setlocal fo+=t
 set linebreak
 
+" disable vi compatibility
+" TODO Different
+" set nocompatible
+
 " Turn on syntax highlighting
+" TODO different
 set t_Co=256
 syntax on
 
@@ -62,11 +67,12 @@ set termencoding=utf-8
 set autoindent
 
 " Use intelligent indentation for C langs
-set smartindent
+" set smartindent
 
 " Use 4 spaces for tabs
 set tabstop=4
 set shiftwidth=4
+" TODO Different
 set expandtab
 
 " Jump to last position when opening files
@@ -76,8 +82,10 @@ if has('autocmd')
 endif
 
 " Switch tabs with arrow keys
-nnoremap <Right> gt
-nnoremap <Left> gT
+nnoremap <S-Right> gt
+nnoremap <S-Left> gT
+imap <S-Right> <ESC>gt
+imap <S-Left> <ESC>gT
 
 " Remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
@@ -87,10 +95,13 @@ nnoremap ff 0
 nnoremap <S-f> $
 
 " Unmap annoying brace mappings
-map { <Nop>
-map } <Nop>
-map ( <Nop>
-map ) <Nop>
+" map { <Nop>
+" map } <Nop>
+" map ( <Nop>
+" map ) <Nop>
+
+" Curly brace placement
+inoremap {<CR> {<CR><BS>}<Esc>O
 
 " Highlight matching braces
 set showmatch
@@ -115,11 +126,11 @@ set number
 
 " Use system clipboard for copy/paste
 set clipboard=unnamedplus
-vnoremap <C-c> "*y
-vnoremap <C-p> "*p
+" vnoremap <C-c> "*y
+" vnoremap <C-p> "*p
 
-" Start scrolling up or down after 15 lines from top/bottom
-set scrolloff=15
+" Start scrolling up or down after 20 lines from top/bottom
+set scrolloff=20
 
 " Make backspace work again
 set backspace=indent,eol,start
@@ -132,10 +143,12 @@ imap <F2> <ESC>:w<CR>i
 command Hexread execute ":%!xxd"
 
 " Resize panes when host window is resized
+" TODO Different
 autocmd VimResized * wincmd =
 
 
 " Allow scrolling vim in xterm
+" TODO different
 set mouse=a
 
 " Merge conflic resolution
@@ -151,7 +164,7 @@ endfunction
 
 function ExitMergeResolution()
   if search("<<<<<<<") || search(">>>>>>>")
-    echoerr "You ain't done yet, sit your ass back down!"
+    echoerr "You have not yet finished, please complete!"
   else
     wq | qa
   endif
@@ -211,7 +224,7 @@ nnoremap - :tabclose<CR>
 "------------------------------------------------------------------------------
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme="molokai"
+let g:airline_theme="simple"
 set laststatus=2
 
 "                               Syntastic
@@ -225,6 +238,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+" TODO Different
 let g:syntastic_debug = 0
 let g:syntastic_mode_map = {
   \ "mode": "active",
@@ -239,6 +253,9 @@ let g:syntastic_cpp_compiler_options = "-Wall -Wextra -Werror -pthread "
 let g:syntastic_cpp_compiler_options += "-std=c++17 -g -fPIC fsanitize=address "
 let g:syntastic_cpp_clang_check_args = "-Wall -Wextra -Werror -pthread "
 let g:syntastic_cpp_clang_check_args += "-std=c++17 -g -fPIC fsanitize=address "
+let g:syntastic_loc_list_height=5
+
+let g:syntastic_cpp_config_file = '/home/dziedada/.syntastic_cpp_config'
 
 " YAML options
 let g:syntastic_yaml_checkers = ['yamllint']
@@ -251,6 +268,9 @@ nnoremap ap :lprev<CR>
 "------------------------------------------------------------------------------
 " Load tag files
 set tags+=~/.vim/tags/cpp
+set tags+=~/.vim/tags/opencv
+set tags+=~/.vim/tags/opencv2
+set tags+=~/.vim/tags/zcm
 
 " Update ctags for current folder using Ctrl + F12
 map <C-F12> :UpdateTags<CR>
