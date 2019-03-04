@@ -97,6 +97,9 @@ autocmd BufWritePre * :%s/\s\+$//e
 nnoremap ff 0
 nnoremap <S-f> $
 
+" use to close syntasitc"
+map ? :lclose <CR>
+
 " Unmap annoying brace mappings
 " map { <Nop>
 " map } <Nop>
