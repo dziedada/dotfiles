@@ -87,6 +87,9 @@ nnoremap <S-Left> gT
 imap <S-Right> <ESC>gt
 imap <S-Left> <ESC>gT
 
+map <ScrollWheelUp> <Up>
+map <ScrollWheelDown> <Down>
+
 " Remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 
@@ -108,6 +111,7 @@ set showmatch
 
 " Highlight while searching
 set incsearch
+set hlsearch
 
 " Intelligent comments
 set comments=sl:/*,mb:\ *,elx:\ */
@@ -117,8 +121,8 @@ set comments=sl:/*,mb:\ *,elx:\ */
 set list lcs=tab:\| 
 
 " Show line and column of cursor
-set cursorline
-set cursorcolumn
+" set cursorline
+" set cursorcolumn
 
 " Use relative line numbers
 set relativenumber
@@ -149,7 +153,9 @@ autocmd VimResized * wincmd =
 
 " Allow scrolling vim in xterm
 " TODO different
-set mouse=a
+set mouse-=a
+map <LeftMouse> <nop>
+map <RightMouse> <nop>
 
 " Merge conflic resolution
 function DiffgetLocal()
@@ -199,7 +205,6 @@ nmap <C-F11> :YcmGenerateConfig
 colorscheme molokai
 let g:rehash256=1
 let g:molokai_original=1
-hi Normal guibg=NONE ctermbg=NONE
 
 "                                Auto Pairs
 "------------------------------------------------------------------------------
@@ -247,7 +252,7 @@ let g:syntastic_mode_map = {
 
 " C++ options
 let g:syntastic_cpp_check_header = 1
-let g:syntastic_cpp_checkers = ["clang_check", "gcc", "cppcheck"]
+let g:syntastic_cpp_checkers = ["gcc", "cppcheck"]
 let g:syntastic_cpp_compiler = "g++"
 let g:syntastic_cpp_compiler_options = "-Wall -Wextra -Werror -pthread "
 let g:syntastic_cpp_compiler_options += "-std=c++17 -g -fPIC fsanitize=address "
@@ -255,7 +260,8 @@ let g:syntastic_cpp_clang_check_args = "-Wall -Wextra -Werror -pthread "
 let g:syntastic_cpp_clang_check_args += "-std=c++17 -g -fPIC fsanitize=address "
 let g:syntastic_loc_list_height=5
 
-let g:syntastic_cpp_config_file = '/home/dziedada/.syntastic_cpp_config'
+" let g:syntastic_cpp_config_file = '/home/dziedada/.syntastic_cpp_config'
+" let g:syntastic_cpp_config_file = '.syntastic_cpp_config'
 
 " YAML options
 let g:syntastic_yaml_checkers = ['yamllint']
