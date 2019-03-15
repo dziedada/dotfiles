@@ -257,17 +257,15 @@ let g:syntastic_mode_map = {
 let g:syntastic_cpp_check_header = 1
 let g:syntastic_cpp_checkers = ["gcc", "cppcheck"]
 let g:syntastic_cpp_compiler = "g++"
-let g:syntastic_cpp_compiler_options = "-Wall -Wextra -Werror -pthread "
-let g:syntastic_cpp_compiler_options += "-std=c++17 -g -fPIC fsanitize=address "
-let g:syntastic_cpp_clang_check_args = "-Wall -Wextra -Werror -pthread "
-let g:syntastic_cpp_clang_check_args += "-std=c++17 -g -fPIC fsanitize=address "
+let g:syntastic_cpp_compiler_options = "-Wall -Wextra -Werror -pthread -std=c++17 -g -fPIC"
+let g:syntastic_cpp_clang_check_args = "-Wall -Wextra -Werror -pthread -std=c++17 -g -fPIC fsanitize=address "
 let g:syntastic_loc_list_height=5
 
 " let g:syntastic_cpp_config_file = '/home/dziedada/.syntastic_cpp_config'
 " let g:syntastic_cpp_config_file = '.syntastic_cpp_config'
 
 " YAML options
-let g:syntastic_yaml_checkers = ['yamllint']
+let g:syntastic_yaml_checkers = ["yamllint"]
 
 " Jump between syntastic errors
 nnoremap al :lnext<CR>
