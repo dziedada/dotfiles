@@ -261,7 +261,7 @@ let g:syntastic_cpp_compiler_options = "-Wall -Wextra -Werror -pthread -std=c++1
 let g:syntastic_cpp_clang_check_args = "-Wall -Wextra -Werror -pthread -std=c++17 -g -fPIC fsanitize=address "
 let g:syntastic_loc_list_height=5
 
-" let g:syntastic_cpp_config_file = '/home/dziedada/.syntastic_cpp_config'
+let g:syntastic_cpp_config_file = '/home/dziedada/.syntastic_cpp_config'
 " let g:syntastic_cpp_config_file = '.syntastic_cpp_config'
 
 " YAML options
