@@ -72,8 +72,8 @@ set autoindent
 " Use 4 spaces for tabs
 set tabstop=4
 set shiftwidth=4
-" TODO Different
 set expandtab
+set softtabstop=4
 
 " Jump to last position when opening files
 if has('autocmd')
